@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin - Kartu Pelajar Digital</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body.login-page {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .login-container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 450px;
+        overflow: hidden;
+        animation: slideUp 0.5s ease;
+      }
+
+      .login-header {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .login-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .logo i {
+        font-size: 40px;
+        color: #2563eb;
+      }
+
+      .login-header h1 {
+        margin: 0 0 10px 0;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .login-header p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      .login-form {
+        padding: 40px 30px 30px;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #374151;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .form-group label i {
+        color: #6b7280;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-control.error {
+        border-color: #ef4444;
+        background-color: #fef2f2;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 42px;
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 5px;
+      }
+
+      .password-toggle:hover {
+        color: #2563eb;
+      }
+
+      .error-message {
+        color: #ef4444;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .error-message.show {
+        display: block;
+      }
+
+      .btn-login {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .btn-login:hover {
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-login:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .btn-login .spinner {
+        display: none;
+        animation: spin 1s linear infinite;
+      }
+
+      .btn-login.loading .spinner {
+        display: inline-block;
+      }
+
+      .btn-login.loading .text {
+        display: none;
+      }
+
+      .login-footer {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid #e5e7eb;
+        color: #6b7280;
+      }
+
+      .login-footer p {
+        margin: 10px 0;
+      }
+
+      .demo-credentials {
+        background: #f3f4f6;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .demo-credentials h4 {
+        margin: 0 0 10px 0;
+        color: #374151;
+      }
+
+      .demo-credentials p {
+        margin: 5px 0;
+      }
+
+      .demo-credentials strong {
+        color: #2563eb;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 15px;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 16px 24px;
+        border-radius: 10px;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        max-width: 400px;
+        display: none;
+        animation: slideInRight 0.3s ease;
+      }
+
+      .toast.success {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+
+      .toast.error {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+      }
+
+      .toast.info {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .login-container {
+          border-radius: 15px;
+        }
+
+        .login-header {
+          padding: 30px 20px;
+        }
+
+        .login-form {
+          padding: 30px 20px 20px;
+        }
+
+        .logo {
+          width: 70px;
+          height: 70px;
+        }
+
+        .logo i {
+          font-size: 35px;
+        }
+      }
+
+      .security-notice {
+        background: #fffbeb;
+        border: 1px solid #fcd34d;
+        border-radius: 10px;
+        padding: 12px 15px;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #92400e;
+      }
+
+      .security-notice i {
+        color: #f59e0b;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body class="login-page">
+    <div class="login-container">
+      <div class="login-header">
+        <div class="logo">
+          <i class="fas fa-id-card"></i>
+        </div>
+        <h1>Kartu Pelajar Digital</h1>
+        <p>Panel Administrasi Sekolah</p>
+      </div>
+
+      <form id="loginForm" class="login-form" novalidate>
+        <div class="form-group">
+          <label for="username"> <i class="fas fa-user"></i> Username </label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Masukkan username"
+            required
+            autocomplete="username"
+          />
+          <div id="usernameError" class="error-message"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="password"> <i class="fas fa-lock"></i> Password </label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Masukkan password"
+            required
+            autocomplete="current-password"
+          />
+          <button type="button" id="togglePassword" class="password-toggle">
+            <i class="fas fa-eye"></i>
+          </button>
+          <div id="passwordError" class="error-message"></div>
+        </div>
+
+        <button type="submit" id="loginButton" class="btn-login">
+          <span class="spinner"><i class="fas fa-spinner fa-spin"></i></span>
+          <span class="text">
+            <i class="fas fa-sign-in-alt"></i> Login ke Dashboard
+          </span>
+        </button>
+
+        <div class="login-footer">
+          <div class="demo-credentials">
+            <h4><i class="fas fa-info-circle"></i> Demo Credentials:</h4>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> admin123</p>
+          </div>
+
+          <div class="security-notice">
+            <i class="fas fa-shield-alt"></i>
+            <strong>Keamanan:</strong> Gunakan password yang kuat dan jangan
+            bagikan akun Anda.
+          </div>
+
+          <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Kembali ke halaman utama
+          </a>
+        </div>
+      </form>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="login.js"></script>
+  </body>
+</html>
