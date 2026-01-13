@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartu Pelajar Digital - Sekolah</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-id-card"></i>
+        <span>KartuPelajar<span class="highlight">.Digital</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#cetak">Cetak Kartu</a></li>
+        <li><a href="#admin" id="adminLink">Admin</a></li>
+        <li>
+          <a href="admin/login.html" class="btn-login">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Kartu Pelajar <span class="highlight">Digital</span> Modern</h1>
+        <p class="subtitle">
+          Buat, kelola, dan cetak kartu pelajar dengan sistem terintegrasi.
+          Cepat, praktis, dan profesional.
+        </p>
+        <div class="cta-buttons">
+          <a href="#cetak" class="btn-primary">Cetak Kartu Saya</a>
+          <a href="#admin" class="btn-secondary">Panel Admin</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <h3>888+</h3>
+            <p>Kartu Tercetak</p>
+          </div>
+          <div class="stat">
+            <h3>888+</h3>
+            <p>Sekolah Bergabung</p>
+          </div>
+          <div class="stat">
+            <h3>88%</h3>
+            <p>Kepuasan Pengguna</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="card-preview">
+          <div class="kartu-sample">
+            <div class="kartu-header">
+              <h3>KARTU PELAJAR</h3>
+              <p>SMA NEGERI 1 DIGITAL</p>
+            </div>
+            <div class="kartu-content">
+              <div class="kartu-foto">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="kartu-info">
+                <p><strong>Nama:</strong> Riansyah</p>
+                <p><strong>NIS:</strong> 072925002</p>
+                <p><strong>Kelas:</strong> XII IPA 1</p>
+                <p><strong>TTL:</strong> Jakarta, 15 Juni 2006</p>
+              </div>
+            </div>
+            <div class="kartu-footer">
+              <div class="barcode">
+                <i class="fas fa-barcode"></i>
+              </div>
+              <p>Berlaku hingga: Juni 2028</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fitur" class="features">
+      <h2>Fitur Unggulan</h2>
+      <p class="section-subtitle">
+        Semua yang Anda butuhkan dalam satu platform
+      </p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Upload Foto</h3>
+          <p>
+            Upload foto langsung dari perangkat dengan sistem crop otomatis.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-print"></i>
+          </div>
+          <h3>Cetak Instan</h3>
+          <p>
+            Cetak kartu dalam format PDF siap print dengan desain profesional.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Database Aman</h3>
+          <p>Data tersimpan aman dengan backup otomatis dan enkripsi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <h3>QR Code</h3>
+          <p>Setiap kartu memiliki QR code unik untuk verifikasi keaslian.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cetak" class="form-section">
+      <h2>Buat Kartu Pelajar Baru</h2>
+      <p class="section-subtitle">
+        Isi data lengkap untuk mencetak kartu pelajar
+      </p>
+
+      <form id="kartuForm" class="kartu-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              placeholder="Masukkan nama lengkap"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="nis"><i class="fas fa-id-badge"></i> NIS</label>
+            <input
+              type="text"
+              id="nis"
+              placeholder="Contoh: 20230001"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="kelas"><i class="fas fa-school"></i> Kelas</label>
+            <select id="kelas" required>
+              <option value="">Pilih Kelas</option>
+              <option value="X IPA 1">X IPA 1</option>
+              <option value="X IPA 2">X IPA 2</option>
+              <option value="X IPS 1">X IPS 1</option>
+              <option value="XI IPA 1">XI IPA 1</option>
+              <option value="XI IPA 2">XI IPA 2</option>
+              <option value="XII IPA 1">XII IPA 1</option>
+              <option value="XII IPA 2">XII IPA 2</option>
+              <option value="XII IPS 1">XII IPS 1</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="jurusan"
+              ><i class="fas fa-graduation-cap"></i> Jurusan</label
+            >
+            <select id="jurusan" required>
+              <option value="">Pilih Jurusan</option>
+              <option value="IPA">IPA</option>
+              <option value="IPS">IPS</option>
+              <option value="Bahasa">Bahasa</option>
+              <option value="Teknik">Teknik</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tempat_lahir"
+              ><i class="fas fa-map-marker-alt"></i> Tempat Lahir</label
+            >
+            <input
+              type="text"
+              id="tempat_lahir"
+              placeholder="Kota kelahiran"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="tanggal_lahir"
+              ><i class="fas fa-birthday-cake"></i> Tanggal Lahir</label
+            >
+            <input type="date" id="tanggal_lahir" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="alamat"><i class="fas fa-home"></i> Alamat Lengkap</label>
+          <textarea
+            id="alamat"
+            rows="3"
+            placeholder="Alamat rumah lengkap"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="no_hp"><i class="fas fa-phone"></i> Nomor HP</label>
+          <input type="tel" id="no_hp" placeholder="0812-3456-7890" required />
+        </div>
+
+        <div class="form-group upload-section">
+          <label><i class="fas fa-camera"></i> Upload Foto (3x4)</label>
+          <div class="upload-area" id="uploadArea">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Klik atau drop foto di sini</p>
+            <p class="upload-note">Format: JPG/PNG, Maks: 2MB</p>
+          </div>
+          <input type="file" id="fotoInput" accept="image/*" hidden />
+          <div class="preview-container" id="previewContainer"></div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="previewBtn" class="btn-secondary">
+            <i class="fas fa-eye"></i> Preview Kartu
+          </button>
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-print"></i> Cetak Kartu
+          </button>
+        </div>
+      </form>
+
+      <div id="previewModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Preview Kartu Pelajar</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="kartuPreview" class="kartu-final"></div>
+          </div>
+          <div class="modal-footer">
+            <button id="downloadPdf" class="btn-primary">
+              <i class="fas fa-download"></i> Download PDF
+            </button>
+            <button class="btn-secondary close-modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>KartuPelajar.Digital</h3>
+          <p>
+            Sistem pembuatan kartu pelajar digital terintegrasi untuk sekolah
+            modern.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p><i class="fas fa-envelope"></i> info@kartupelajar.digital</p>
+          <p><i class="fas fa-phone"></i> (021) 1234-*****</p>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <p><a href="#">Bantuan</a></p>
+          <p><a href="#">Dokumentasi</a></p>
+          <p><a href="#">FAQ</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 KartuPelajar.Digital. Prototype.</p>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
